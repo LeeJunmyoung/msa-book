@@ -1,0 +1,1 @@
+package com.leejm.msa.domain.model;
