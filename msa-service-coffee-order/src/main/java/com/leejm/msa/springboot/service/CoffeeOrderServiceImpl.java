@@ -1,12 +1,20 @@
 package com.leejm.msa.springboot.service;
 
-import com.leejm.msa.domain.model.CoffeeOrderCVO;
+import javax.transaction.Transactional;
 
-public class CoffeeOrderServiceImpl {
+import org.springframework.stereotype.Service;
 
-	public void coffeeOrder(CoffeeOrderCVO coffeeOrderCVO) {
-		// TODO Auto-generated method stub
-		
+import com.leejm.msa.domain.repository.ICoffeeOrderRepository;
+import com.leejm.msa.domain.service.CoffeeOrder;
+
+@Service
+@Transactional
+public class CoffeeOrderServiceImpl extends CoffeeOrder {
+
+	public CoffeeOrderServiceImpl(ICoffeeOrderRepository iCoffeeOrderRepository) {
+		super(iCoffeeOrderRepository);
 	}
+
+	
 
 }
