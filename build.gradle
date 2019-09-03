@@ -14,7 +14,7 @@ dependencies {
     implementation 'com.google.guava:guava:27.1-jre'
 
     // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    //testImplementation 'junit:junit:4.12'
 }
 
 buildscript {
@@ -59,7 +59,7 @@ subprojects {
 	dependencies {
 		compile('org.projectlombok:lombok:1.18.8')
 		compile('org.projectlombok:lombok-utils:1.18.8')
-		compile('junit:juint:4.12')
+		//compile('junit:juint:4.12')
 		
 		testCompile("org.springframework.boot:spring-boot-starter-test")
 	}
