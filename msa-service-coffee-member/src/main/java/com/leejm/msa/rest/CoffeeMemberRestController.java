@@ -24,17 +24,22 @@ public class CoffeeMemberRestController {
 	/*
 	 *	회원 확인  
 	 */
-	@HystrixCommand
+	@HystrixCommand(fallbackMethod = "coffeeMemberFallbackFunction")
 	@RequestMapping(value = "/coffeeMember/v1.0/{memberName}", method = RequestMethod.GET)
-	public boolean coffeeMember(@PathVariable("memberName") String memberName) {
+	public String coffeeMember(@PathVariable("memberName") String memberName) throws Exception {
 		
 		MemberDVO memberDVO = new MemberDVO();
 		memberDVO.setMemberName(memberName);
 		
-		if(iCoffeeMemberMapper.existsByMemberName(memberDVO)
-				.getMemberName()
-				.isEmpty()) return false;
-		else return true;
+		if(iCoffeeMemberMapper.existsByMemberName(memberDVO).getMemberName() == null) {
+			return "false";
+		}
+		else {
+			return "true";
+		}
+	}
+	public String coffeeMemberFallbackFunction(String memberName){
+		return memberName + " is null";
 	}
 
 	@HystrixCommand
@@ -67,12 +72,12 @@ public class CoffeeMemberRestController {
 	/*
 	 *	테스트 테이블 & 데이터 생성.
 	 */
-	@RequestMapping(value = "/createMemberTable", method = RequestMethod.PUT)
+	@RequestMapping(value = "/createMemberTable", method = RequestMethod.GET)
 	public void createMemberTable() {
 		iCoffeeMemberMapper.createMemberTable();
 	}
 	
-	@RequestMapping(value = "/insertMemberData", method = RequestMethod.PUT)
+	@RequestMapping(value = "/insertMemberData", method = RequestMethod.GET)
 	public void insertMemberData() {
 		iCoffeeMemberMapper.insertMemberData();
 	}
