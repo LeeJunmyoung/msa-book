@@ -4,6 +4,7 @@ repositories {
     // Use jcenter for resolving dependencies.
     // You can declare any Maven/Ivy/file repository here.
     jcenter()
+    maven { url 'http://repo1.maven.org/maven2' }
 }
 
 dependencies {
@@ -14,7 +15,9 @@ dependencies {
     implementation 'com.google.guava:guava:27.1-jre'
 
     // Use JUnit test framework
-    //testImplementation 'junit:junit:4.12'
+    // https://mvnrepository.com/artifact/junit/junit
+	testCompile group: 'junit', name: 'junit', version: '4.12'
+
 }
 
 buildscript {
@@ -59,7 +62,9 @@ subprojects {
 	dependencies {
 		compile('org.projectlombok:lombok:1.18.8')
 		compile('org.projectlombok:lombok-utils:1.18.8')
-		//compile('junit:juint:4.12')
+		// https://mvnrepository.com/artifact/junit/junit
+		testCompile group: 'junit', name: 'junit', version: '4.12'
+
 		
 		testCompile("org.springframework.boot:spring-boot-starter-test")
 	}
