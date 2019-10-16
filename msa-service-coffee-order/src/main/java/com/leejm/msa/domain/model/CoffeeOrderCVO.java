@@ -9,4 +9,5 @@ public class CoffeeOrderCVO {
 	private String coffeeName;		// 커피종류
 	private String coffeeCount;		// 커피개수
 	private String customerName;	// 회원명
+	private String result;
 }

@@ -10,4 +10,7 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-config:1.4.4.RELEASE')
 	compile('org.springframework.cloud:spring-cloud-starter-eureka:1.4.5.RELEASE')
 	compile('org.springframework.cloud:spring-cloud-starter-hystrix:1.4.4.RELEASE')
+	
+	compileOnly('org.projectlombok:lombok:1.18.8')
+	annotationProcessor ('org.projectlombok:lombok:1.18.8')
 }

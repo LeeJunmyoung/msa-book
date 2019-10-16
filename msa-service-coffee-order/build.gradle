@@ -12,4 +12,6 @@ dependencies {
 	compile('org.springframework.cloud:spring-cloud-starter-hystrix:1.4.4.RELEASE')
 	compile('org.springframework.cloud:spring-cloud-starter-feign:1.4.4.RELEASE')
 
+	compileOnly('org.projectlombok:lombok:1.18.8')
+	annotationProcessor ('org.projectlombok:lombok:1.18.8')
 }

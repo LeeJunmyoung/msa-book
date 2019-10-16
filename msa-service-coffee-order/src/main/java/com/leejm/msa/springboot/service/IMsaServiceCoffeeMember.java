@@ -9,5 +9,5 @@ import org.springframework.web.bind.annotation.RequestMethod;
 public interface IMsaServiceCoffeeMember{
 
 	@RequestMapping(value = "/coffeeMember/v1.0/{memberName}", method = RequestMethod.GET)
-	boolean coffeeMember(@PathVariable("memberName") String memberName);
+	String coffeeMember(@PathVariable("memberName") String memberName);
 }

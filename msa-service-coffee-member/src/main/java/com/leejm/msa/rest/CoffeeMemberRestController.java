@@ -31,6 +31,8 @@ public class CoffeeMemberRestController {
 		MemberDVO memberDVO = new MemberDVO();
 		memberDVO.setMemberName(memberName);
 		
+		System.out.println("Search : " + memberName);
+		
 		if(iCoffeeMemberMapper.existsByMemberName(memberDVO).getMemberName() == null) {
 			return "false";
 		}

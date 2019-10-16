@@ -32,13 +32,19 @@ public class CoffeeOrderRestController {
 	@RequestMapping(value="/coffeeOrder", method = RequestMethod.POST)
 	public ResponseEntity<CoffeeOrderCVO> coffeeOrder(@RequestBody CoffeeOrderCVO coffeeOrderCVO) {
 		
-		if(iMsaServiceCoffeeMember.coffeeMember(coffeeOrderCVO.getCustomerName())) {
+		String isCoffeeMember = iMsaServiceCoffeeMember.coffeeMember(coffeeOrderCVO.getCustomerName());
+		if(isCoffeeMember.equals("true")) {
 			System.out.println(coffeeOrderCVO.getCustomerName() + " is a member");
+			coffeeOrderServiceImpl.coffeeOrder(coffeeOrderCVO);
+			coffeeOrderCVO.setResult("true");
+		} 
+		else {
+			System.out.println(isCoffeeMember);
+			coffeeOrderCVO.setResult("false");
 		}
 		
-		coffeeOrderServiceImpl.coffeeOrder(coffeeOrderCVO);
 		
-		kafkaProducer.send("kafka-test", coffeeOrderCVO);
+		//kafkaProducer.send("kafka-test", coffeeOrderCVO);
 		
 		return new ResponseEntity<CoffeeOrderCVO>(coffeeOrderCVO, HttpStatus.OK);
 	}
