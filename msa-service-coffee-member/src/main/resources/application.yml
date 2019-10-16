@@ -17,7 +17,9 @@ spring:
 #Eureka Client   
 eureka:
   client:
-    registerWithEureka: false
-    fetchRegistry: false
+#    registerWithEureka: false
+#    fetchRegistry: false
     serviceUrl:
       defaultZone: http://localhost:9091/eureka/
+
+eureka.instance.hostname: msa-service-coffee-member
